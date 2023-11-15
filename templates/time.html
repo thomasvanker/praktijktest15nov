@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>qlawi Current Time and Date qlawi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        #datetime {
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        #date {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>qlawi Current Time and Date qlawi</h1>
+    <div id="datetime"></div>
+    <div id="date"></div>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById("datetime");
+            const dateElement = document.getElementById("date");
+            const now = new Date();
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString(undefined, options);
+
+            dateTimeElement.textContent = now.toLocaleTimeString();
+            dateElement.textContent = formattedDate;
+        }
+
+        // Call the updateDateTime function initially to display the time and date.
+        updateDateTime();
+
+        // Update the time and date every second (1000 milliseconds).
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
